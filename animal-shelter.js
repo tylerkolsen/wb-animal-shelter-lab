@@ -6,15 +6,18 @@ class Animal {
     this.species = species;
     this.color = color;
     this.hunger = hunger;
+    this.play = "I can't wait to play! This'll be so much fun!";
+    this.foodGreet = "Mmmm!";
+    this.foodEnd = "There's nothing quite like tasty food!";
   }
 
-  greet(greeting = "Hi") {
-    console.log(`${greeting}, I'm ${this.name} the ${this.species}`);
+  greet(greeting = "Hi", play = this.play) {
+    console.log(`${greeting}, I'm ${this.name} the ${this.species}. ${play}`);
   }
 
-  feed(food = "food") {
+  feed(greet = this.foodGreet, food = "food", end = this.foodEnd) {
     this.hunger -= 20;
-    console.log(`Yum, I love ${food}`);
+    console.log(`${greet} I love ${food}. ${end}`);
   }
 }
 
@@ -22,6 +25,9 @@ class Cat extends Animal {
   constructor(name, color, hunger = 50) {
     super(name, "cat", color, hunger);
     this.food = "fish";
+    this.play = "I'm enjoying a nap right now. But maybe we can play later!";
+    this.foodGreet = "Purrrrrrrr...";
+    this.foodEnd = "This is something I can really sink my teeth into.";
   }
 
   greet() {
@@ -29,7 +35,7 @@ class Cat extends Animal {
   }
 
   feed() {
-    super.feed(this.food);
+    super.feed();
   }
 
   meow() {
@@ -41,13 +47,16 @@ class Dog extends Animal {
   constructor(name, color, hunger = 50) {
     super(name, "dog", color, hunger);
     this.food = "kibble";
+    this.play = "Oh Boy! Ball ball ball ball ball! Thow the ball!";
+    this.foodGreet = "Yes yes yes yes!";
+    this.foodEnd = "Can I have some more?";
   }
   greet() {
     super.greet("Woof");
   }
 
   feed() {
-    super.feed(this.food);
+    super.feed();
   }
 }
 
